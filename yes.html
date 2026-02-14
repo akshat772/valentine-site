@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>She Said Yes 💜</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: url('yourphoto.jpg.jpeg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/* Purple Overlay */
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(123, 47, 247, 0.55);
+}
+
+/* Message Box */
+.content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 20px;
+}
+
+.content h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 42px;
+    margin-bottom: 15px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.content p {
+    font-size: 20px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 24px;
+    animation: floatUp linear infinite;
+    color: #ffb6ff;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="content">
+    <h1>Yayyy! 💖</h1>
+    <p>
+        You just made me the happiest person alive 💜<br><br>
+        I promise to love you forever,<br>
+        protect you, annoy you,<br>
+        and choose you every single day 🌸
+    </p>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+/* Floating Hearts Generator */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💜";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
+}
+
+setInterval(createHeart, 300);
+
+/* iPhone Music Fix (plays after interaction) */
+document.body.addEventListener("click", function() {
+    document.getElementById("bgMusic").play();
+});
+</script>
+
+</body>
+</html>
