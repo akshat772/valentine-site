@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine? 💜</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 30px rgba(255,255,255,0.3);
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 15px;
+    transition: 0.3s;
+}
+
+#yes {
+    background: #ff4ecd;
+    color: white;
+}
+
+#yes:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px white;
+}
+
+#no {
+    background: white;
+    color: #7b2ff7;
+    position: absolute;
+}
+
+.popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: #7b2ff7;
+    padding: 15px 25px;
+    border-radius: 20px;
+    display: none;
+    font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Will You Be My Valentine? 💜</h1>
+    <button id="yes" onclick="openYes()">Yes 💖</button>
+    <button id="no">No 😢</button>
+</div>
+
+<div class="popup" id="popup">Please click Yes 🥺💜</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const popup = document.getElementById("popup");
+
+noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    popup.style.display = "block";
+    setTimeout(() => popup.style.display = "none", 1500);
+});
+
+function openYes() {
+    window.open("yes.html", "_blank");
+}
+</script>
+
+</body>
+</html>
